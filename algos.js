@@ -129,21 +129,25 @@ list.add(6).add(9).add(14).add(15).add(3).add(4);
 list.display();
 console.log("**********************************************");
 
-list.reverse();
-list.display();
-var list2 = new SLL();
-list2.add(1).add(2).add(list).add(3);
-list2.display();
-console.log("**********************************************");
-// list2.flatten();
-console.log("**********************************************");
+
+
+// TEST CASES 
+
+// list.reverse();
+// list.display();
+// var list2 = new SLL();
+// list2.add(1).add(2).add(list).add(3);
 // list2.display();
-var list4 = new SLL();
-list4.add(9).add(9);
-var list3 = new SLL();
-list3.add(42).add(list2).add(42).add(list4).add(42);
-console.log("**********************************************");
-list3.display();
-list3.flatten();
-console.log("**********************************************");
-list3.display()
+// console.log("**********************************************");
+// list2.flatten();
+// console.log("**********************************************");
+// list2.display();
+// var list4 = new SLL();
+// list4.add(9).add(9);
+// var list3 = new SLL();
+// list3.add(42).add(list2).add(42).add(list4).add(42);
+// console.log("**********************************************");
+// list3.display();
+// list3.flatten();
+// console.log("**********************************************");
+// list3.display()
