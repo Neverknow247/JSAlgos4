@@ -71,21 +71,6 @@ class SLL {
         this.count++;
         return this;
     }
-    addList(list){
-        if (this.head == null) {
-            this.head = new SLNode(list);
-        }
-        else {
-            let runner = this.head;
-            while (runner.next !== null) {
-                runner = runner.next;
-            }
-            runner.next = new SLNode(list);
-            runner.next.child = list.head;
-        }
-        this.count++;
-        return this;
-    }
     display() {
         if (this.head === null) {
             console.log("This is not the list you are looking for.");
@@ -120,30 +105,6 @@ class SLL {
         }
         var runner = this.head;
         var temp = null;
-        while(runner.next != null){
-            if(runner.next.child != null){
-                console.log("found");
-                temp = runner.next.next;
-                runner.next = runner.next.child;
-                runner = runner.next;
-            }
-            if (temp != null){
-                while(runner.next != null){
-                    runner = runner.next;
-                }
-                runner.next = temp;
-            }
-            runner = runner.next;
-
-        }
-    }
-    betterflatten(){
-        if (this.head === null){
-            console.log("This is not the list you are looking for.");
-            return this;
-        }
-        var runner = this.head;
-        var temp = null;
         var end = null;
         var current = null;
         while(runner.next != null){
@@ -151,7 +112,7 @@ class SLL {
                 temp = runner.next.next;
                 current = runner.next.val;
                 runner.next = runner.next.child;
-                runner = current.betterflatten();
+                runner = current.flatten();
                 runner.next = temp;
             }
             runner = runner.next;
@@ -174,7 +135,7 @@ var list2 = new SLL();
 list2.add(1).add(2).add(list).add(3);
 list2.display();
 console.log("**********************************************");
-// list2.betterflatten();
+// list2.flatten();
 console.log("**********************************************");
 // list2.display();
 var list4 = new SLL();
@@ -183,6 +144,6 @@ var list3 = new SLL();
 list3.add(42).add(list2).add(42).add(list4).add(42);
 console.log("**********************************************");
 list3.display();
-list3.betterflatten();
+list3.flatten();
 console.log("**********************************************");
 list3.display()
