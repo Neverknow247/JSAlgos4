@@ -122,17 +122,18 @@ class SLL {
         return end;
     }
 }
-console.log("**********************************************");
-var list = new SLL();
-list.add(6).add(9).add(14).add(15).add(3).add(4);
 
-list.display();
-console.log("**********************************************");
 
 
 
 // TEST CASES 
 
+// console.log("**********************************************");
+// var list = new SLL();
+// list.add(6).add(9).add(14).add(15).add(3).add(4);
+
+// list.display();
+// console.log("**********************************************");
 // list.reverse();
 // list.display();
 // var list2 = new SLL();
