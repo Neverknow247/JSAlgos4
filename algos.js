@@ -113,6 +113,7 @@ class SLL {
                 current = runner.next.val;
                 runner.next = runner.next.child;
                 runner = current.flatten();
+                this.count += (current.count-1);
                 runner.next = temp;
             }
             runner = runner.next;
@@ -121,6 +122,28 @@ class SLL {
         end = runner;
         return end;
     }
+    IsLoopUsingCount(){
+        var runner = this.head;
+        for(var i=1; i<this.count;i++){
+            runner = runner.next;
+        }
+        if (runner.next != null){
+            console.log("True");
+            return true;
+        }
+        else{
+            console.log("False");
+            return false;
+        }
+    }
+    FixLoopUsingCount(){
+        var runner = this.head;
+        for(var i=1; i<this.count;i++){
+            runner = runner.next;
+        }
+        runner.next = null;
+        return this;
+    }
 }
 
 
@@ -128,27 +151,29 @@ class SLL {
 
 // TEST CASES 
 
-// console.log("**********************************************");
-// var list = new SLL();
-// list.add(6).add(9).add(14).add(15).add(3).add(4);
+console.log("**********************************************");
+var list = new SLL();
+list.add(6).add(9).add(14).add(15).add(3).add(4);
 
-// list.display();
-// console.log("**********************************************");
-// list.reverse();
-// list.display();
-// var list2 = new SLL();
-// list2.add(1).add(2).add(list).add(3);
-// list2.display();
-// console.log("**********************************************");
-// list2.flatten();
-// console.log("**********************************************");
-// list2.display();
-// var list4 = new SLL();
-// list4.add(9).add(9);
-// var list3 = new SLL();
-// list3.add(42).add(list2).add(42).add(list4).add(42);
-// console.log("**********************************************");
-// list3.display();
-// list3.flatten();
-// console.log("**********************************************");
-// list3.display()
+list.display();
+console.log("**********************************************");
+list.reverse();
+list.display();
+var list2 = new SLL();
+list2.add(1).add(2).add(list).add(3);
+list2.display();
+console.log("**********************************************");
+list2.flatten();
+console.log("**********************************************");
+list2.display();
+var list4 = new SLL();
+list4.add(9).add(9);
+var list3 = new SLL();
+list3.add(42).add(list2).add(42).add(list4).add(42);
+console.log("**********************************************");
+list3.display();
+list3.flatten();
+console.log("**********************************************");
+list3.display();
+console.log(list3.count);
+list3.IsLoopUsingCount();
